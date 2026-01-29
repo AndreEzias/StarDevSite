@@ -115,6 +115,13 @@ strong {
     background-clip: text;
 }
 
+.logo-img {
+    height: 40px;
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
