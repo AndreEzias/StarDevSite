@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -54,32 +54,73 @@ document.addEventListener('DOMContentLoaded', () => {
     style.textContent = '.visible { opacity: 1 !important; transform: translateY(0) !important; }';
     document.head.appendChild(style);
 
-    // Form handling
+    // EmailJS Configuration
+    // ⚠️ IMPORTANTE: Substitua pelos seus valores do EmailJS
+    const EMAILJS_PUBLIC_KEY = 'UmJYxVssCxeN-kJWN';
+    const EMAILJS_SERVICE_ID = 'service_zpdb0pc';
+    const EMAILJS_TEMPLATE_ID = 'template_qomyah9';
+
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+
+    // Form handling with EmailJS
     const form = document.getElementById('contact-form');
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            const process = document.getElementById('process').value;
-            
-            // Format WhatsApp message
-            const message = `Olá! Meu nome é ${name}.\n\nProcesso que quero automatizar:\n${process}`;
-            const whatsappLink = `https://wa.me/5500000000000?text=${encodeURIComponent(message)}`;
-            
-            // Show success feedback
+
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
-            btn.innerHTML = '<span>✓ Redirecionando...</span>';
-            btn.style.background = '#22c55e';
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-                // window.open(whatsappLink, '_blank');
-                alert('Formulário enviado com sucesso! Em breve entraremos em contato.');
-                form.reset();
-            }, 1500);
+
+            // Show loading state
+            btn.innerHTML = '<span>Enviando...</span>';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            const whatsappRaw = document.getElementById('whatsapp').value;
+            const whatsappClean = whatsappRaw.replace(/\D/g, ''); // Remove tudo que não é número
+
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                whatsapp: whatsappRaw,
+                whatsapp_clean: whatsappClean, // Número limpo para o link
+                process: document.getElementById('process').value,
+                to_name: 'André Ezías'
+            };
+
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+
+                // Success feedback
+                btn.innerHTML = '<span>✓ Enviado com sucesso!</span>';
+                btn.style.background = '#22c55e';
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    form.reset();
+                }, 3000);
+
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+
+                // Error feedback
+                btn.innerHTML = '<span>✗ Erro ao enviar</span>';
+                btn.style.background = '#ef4444';
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                }, 3000);
+
+                alert('Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+            }
         });
     }
 

@@ -1,0 +1,160 @@
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║                    TEMPLATE EMAILJS - STARDEV                     ║
+╠══════════════════════════════════════════════════════════════════╣
+║  COMO USAR:                                                       ║
+║  1. Acesse: https://dashboard.emailjs.com/admin/templates         ║
+║  2. Clique em "Create New Template"                               ║
+║  3. Configure:                                                    ║
+║     - Subject: Cole o conteúdo da seção SUBJECT abaixo            ║
+║     - Content: Cole o HTML da seção BODY abaixo                   ║
+║  4. Copie o Template ID e cole no script.js                       ║
+║  5. Clique em "Save"                                              ║
+╚══════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════
+                              SUBJECT
+═══════════════════════════════════════════════════════════════════
+
+🚀 Novo Lead Stardev: {{from_name}}
+
+═══════════════════════════════════════════════════════════════════
+                               BODY
+═══════════════════════════════════════════════════════════════════
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body
+    style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0a0f1a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+        style="background-color: #0a0f1a; padding: 40px 20px;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0"
+                    style="background: linear-gradient(135deg, #111827 0%, #1a1f2e 100%); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td
+                            style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); padding: 30px 40px; text-align: center;">
+                            <h1 style="margin: 0; color: #0a0f1a; font-size: 24px; font-weight: 700;">
+                                ⚡ NOVO LEAD STARDEV
+                            </h1>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+
+                            <!-- Greeting -->
+                            <p style="margin: 0 0 25px 0; color: #9ca3af; font-size: 16px;">
+                                Olá <strong style="color: #22c55e;">{{to_name}}</strong>, você recebeu um novo contato
+                                através da landing page!
+                            </p>
+
+                            <!-- Contact Info Card -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                style="background-color: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 12px; margin-bottom: 25px;">
+                                <tr>
+                                    <td style="padding: 25px;">
+
+                                        <!-- Name -->
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                            style="margin-bottom: 20px;">
+                                            <tr>
+                                                <td width="40" style="vertical-align: top;">
+                                                    <span style="font-size: 20px;">👤</span>
+                                                </td>
+                                                <td>
+                                                    <p
+                                                        style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                                                        Nome</p>
+                                                    <p
+                                                        style="margin: 0; color: #ffffff; font-size: 18px; font-weight: 600;">
+                                                        {{from_name}}</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- WhatsApp -->
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                            style="margin-bottom: 20px;">
+                                            <tr>
+                                                <td width="40" style="vertical-align: top;">
+                                                    <span style="font-size: 20px;">📱</span>
+                                                </td>
+                                                <td>
+                                                    <p
+                                                        style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                                                        WhatsApp</p>
+                                                    <p
+                                                        style="margin: 0; color: #22c55e; font-size: 18px; font-weight: 600;">
+                                                        {{whatsapp}}</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Process -->
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="40" style="vertical-align: top;">
+                                                    <span style="font-size: 20px;">⚙️</span>
+                                                </td>
+                                                <td>
+                                                    <p
+                                                        style="margin: 0 0 4px 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                                                        Processo a Automatizar</p>
+                                                    <p
+                                                        style="margin: 0; color: #e5e7eb; font-size: 16px; line-height: 1.6;">
+                                                        {{process}}</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- CTA Button -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td align="center">
+                                        <a href="https://wa.me/55{{whatsapp_clean}}" target="_blank"
+                                            style="display: inline-block; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: #0a0f1a; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 16px;">
+                                            💬 Responder via WhatsApp
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td
+                            style="background-color: rgba(0,0,0,0.3); padding: 25px 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">
+                                ⚡ <strong style="color: #22c55e;">Stardev</strong> Desenvolvimento de Software
+                            </p>
+                            <p style="margin: 0; color: #4b5563; font-size: 12px;">
+                                Automação Inteligente para o seu Negócio
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
