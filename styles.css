@@ -8,9 +8,12 @@
     --blue: #3b82f6;
     --danger: #ef4444;
     --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border: rgba(255, 255, 255, 0.1);
+    --text-secondary: #cbd5e1;
+    /* Clareado de #94a3b8 para melhor contraste */
+    --text-muted: #94a3b8;
+    /* Clareado de #64748b para passar em AA */
+    --border: rgba(255, 255, 255, 0.15);
+    /* Aumentado opacidade para visibilidade */
     --font: 'Inter', system-ui, -apple-system, sans-serif;
     --radius: 12px;
     --radius-lg: 20px;
@@ -158,6 +161,11 @@ strong {
     flex-direction: column;
     gap: 5px;
     padding: 8px;
+    width: 40px;
+    /* Definindo largura fixa para evitar CLS */
+    height: 40px;
+    /* Definindo altura fixa */
+    justify-content: center;
 }
 
 .mobile-menu-btn span {
@@ -380,6 +388,27 @@ strong {
     width: 100%;
 }
 
+.form-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    /* Garantir contraste */
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.contact-email {
+    margin-top: 16px;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.contact-email a {
+    font-weight: 600;
+}
+
 .btn-arrow {
     width: 18px;
     height: 18px;
@@ -561,7 +590,8 @@ strong {
 .code-title {
     margin-left: 12px;
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
+    /* Melhor contraste */
 }
 
 .code-body {
@@ -1034,10 +1064,12 @@ strong {
 /* Animations */
 .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
+    will-change: opacity;
 }
 
 .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
+    will-change: opacity, transform;
 }
 
 .delay-1 {
