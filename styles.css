@@ -1064,12 +1064,10 @@ strong {
 /* Animations */
 .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
-    will-change: opacity;
 }
 
 .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
-    will-change: opacity, transform;
 }
 
 .delay-1 {
@@ -1191,4 +1189,9 @@ strong {
         flex-wrap: wrap;
         justify-content: center;
     }
+}
+
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }

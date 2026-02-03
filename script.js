@@ -58,11 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Add visible class styles
-    const style = document.createElement('style');
-    style.textContent = '.visible { opacity: 1 !important; transform: translateY(0) !important; }';
-    document.head.appendChild(style);
-
     // EmailJS Configuration
     // ⚠️ IMPORTANTE: Substitua pelos seus valores do EmailJS
     const EMAILJS_PUBLIC_KEY = 'UmJYxVssCxeN-kJWN';
